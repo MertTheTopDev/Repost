@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BasicsStoriesView: View {
-    
+    @Environment(\.dismiss) var dismiss
     let idType: Int
     
     init(
@@ -19,7 +19,7 @@ struct BasicsStoriesView: View {
     
     var body: some View {
         VStack {
-            BackHeaderView {    }
+            BackHeaderView { dismiss() }
             Spacer()
             BackgroundStoriesView()
                 .overlay(alignment: .center) {
@@ -50,7 +50,9 @@ struct BasicsStoriesView: View {
                     .font(FontHandler.setFont(.bold, size: .xs12))
                 }
             Spacer().frame(height: dh(0.04))
-            SendMassageView {   }
+            SendMassageView {
+                
+            }
             Spacer()
         }
         .frame(width: dw(1))

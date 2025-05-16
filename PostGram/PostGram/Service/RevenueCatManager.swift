@@ -22,7 +22,7 @@ final class RevenueCatManager {
     private func configureRevenueCat() {
         logger.debug("RevenueCatM: 🚀 Configuring RevenueCat...")
         do {
-            Purchases.configure(withAPIKey: "appl_MAJKdlGcAmIpBOQCbCqgAPSohMR")
+            Purchases.configure(withAPIKey: "appl_ksbcwDirzhELhXpFjsmDiSuFUka")
             logger.info("RevenueCatM: ✅ RevenueCat successfully configured")
             
             // Önce customer info'yu al

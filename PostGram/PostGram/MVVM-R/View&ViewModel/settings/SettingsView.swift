@@ -23,7 +23,9 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             headerView
-            bannerView
+            if !state.user.isPremium {
+                bannerView
+            }
             Spacer().frame(height: dh(0.05))
             VStack(spacing: 16) {
      
@@ -44,6 +46,9 @@ struct SettingsView: View {
             Spacer()
         }
         .frame(width: dw(1))
+        .sheet(isPresented: $vm.isAppearPremium, content: {
+            PaywallView()
+        })
         .background(BackgroundView())
     }
 }

@@ -14,6 +14,7 @@ struct ImageHandler {
     func getIcons(_ icon: ImageHelper.icon) -> some View {
         Image(icon.rawValue)
             .resizable()
+            .scaledToFit()
     }
     
     func getImage(_ image: ImageHelper.image) -> some View {

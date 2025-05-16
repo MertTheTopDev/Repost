@@ -71,26 +71,54 @@ struct InsightRouter: View {
 private extension InsightRouter {
     
     var navBarView: some View {
-        RoundedRectangle(cornerRadius: 30)
+        let icon = ImageHandler.shared
+        
+        
+        return RoundedRectangle(cornerRadius: 30)
             .foregroundStyle(ColorHandler.getColor(for: .purple))
             .overlay(alignment: .center, content: {
                 HStack {
                     //TODO: Icons
                     Spacer()
-                    Image(systemName: "document")
+                    Group {
+                        if presenter.currentView == .post {
+                            icon.getIcons(.repostSelected)
+                        } else {
+                            icon.getIcons(.repostUnselected)
+                        }
+                    }
                         .onTapGesture { presenter.navigate(to: .post) }
                     Spacer()
-                    Image(systemName: "document")
-                        .onTapGesture { presenter.navigate(to: .stories) }
+                    Group {
+                        if presenter.currentView == .stories {
+                            icon.getIcons(.storySelected)
+                        } else {
+                            icon.getIcons(.storyUnselected)
+                        }
+                    }
+                    .onTapGesture { presenter.navigate(to: .stories) }
+
                     Spacer()
-                    Image(systemName: "document")
-                        .onTapGesture { presenter.navigate(to: .hashtags) }
+                    Group {
+                        if presenter.currentView == .hashtags {
+                            icon.getIcons(.hashtagSelected)
+                        } else {
+                            icon.getIcons(.hashtagUnselected)
+                        }
+                    }
+                    .onTapGesture { presenter.navigate(to: .hashtags) }
                     Spacer()
-                    Image(systemName: "document")
+                    Group {
+                        if presenter.isSettingsPresented == true {
+                            icon.getIcons(.settingsSelected)
+                        } else {
+                            icon.getIcons(.settingsUnselected)
+                        }
+                    }
                         .onTapGesture { presenter.isSettingsPresented.toggle() }
                     Spacer()
                 }
-                .foregroundStyle(Color.white)
+                .padding()
             })
             .frame(width: dw(0.6), height: dh(0.06))
     }

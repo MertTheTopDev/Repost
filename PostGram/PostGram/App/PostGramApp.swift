@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
+import FacebookCore
 
 @main
 struct PostGramApp: App {
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var state: PostGramState
     
     init() {
@@ -19,7 +22,7 @@ struct PostGramApp: App {
     var body: some Scene {
         WindowGroup {
             SplashView()
-                .environmentObject(PostGramState())
+                .environmentObject(state)
         }
     }
 }

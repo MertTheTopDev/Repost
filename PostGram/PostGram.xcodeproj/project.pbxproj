@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C17EC6B22DD632D000C15539 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = C17EC6B12DD632D000C15539 /* FacebookBasics */; };
+		C17EC6B42DD632D000C15539 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = C17EC6B32DD632D000C15539 /* FacebookCore */; };
 		C31B7C612DA2A8D400C2F64E /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = C31B7C602DA2A8D400C2F64E /* RevenueCat */; };
 /* End PBXBuildFile section */
 
@@ -14,9 +16,22 @@
 		C3B9B9852DA2561F001C2086 /* PostGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C17EC6B62DD636B000C15539 /* Exceptions for "PostGram" folder in "PostGram" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Source/Info.plist,
+			);
+			target = C3B9B9842DA2561F001C2086 /* PostGram */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C3B9B9872DA2561F001C2086 /* PostGram */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C17EC6B62DD636B000C15539 /* Exceptions for "PostGram" folder in "PostGram" target */,
+			);
 			path = PostGram;
 			sourceTree = "<group>";
 		};
@@ -28,6 +43,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C31B7C612DA2A8D400C2F64E /* RevenueCat in Frameworks */,
+				C17EC6B42DD632D000C15539 /* FacebookCore in Frameworks */,
+				C17EC6B22DD632D000C15539 /* FacebookBasics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +88,8 @@
 			name = PostGram;
 			packageProductDependencies = (
 				C31B7C602DA2A8D400C2F64E /* RevenueCat */,
+				C17EC6B12DD632D000C15539 /* FacebookBasics */,
+				C17EC6B32DD632D000C15539 /* FacebookCore */,
 			);
 			productName = PostGram;
 			productReference = C3B9B9852DA2561F001C2086 /* PostGram.app */;
@@ -106,6 +125,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C31B7C5F2DA2A8D400C2F64E /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				C17EC6B02DD632D000C15539 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C3B9B9862DA2561F001C2086 /* Products */;
@@ -266,11 +286,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PostGram/PostGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3MVRPNX8U7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PostGram/Source/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "PostGram wants to access your library to view your photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -284,7 +306,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.izysoft.repostify.PostGram;
+				PRODUCT_BUNDLE_IDENTIFIER = net.izysoft.repostify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -301,11 +323,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PostGram/PostGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3MVRPNX8U7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PostGram/Source/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "PostGram wants to access your library to view your photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -319,7 +343,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.izysoft.repostify.PostGram;
+				PRODUCT_BUNDLE_IDENTIFIER = net.izysoft.repostify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -355,6 +379,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C17EC6B02DD632D000C15539 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 18.0.0;
+			};
+		};
 		C31B7C5F2DA2A8D400C2F64E /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios";
@@ -366,6 +398,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C17EC6B12DD632D000C15539 /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C17EC6B02DD632D000C15539 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		C17EC6B32DD632D000C15539 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C17EC6B02DD632D000C15539 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
 		C31B7C602DA2A8D400C2F64E /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C31B7C5F2DA2A8D400C2F64E /* XCRemoteSwiftPackageReference "purchases-ios" */;

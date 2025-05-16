@@ -16,6 +16,8 @@ class PostGramState: ObservableObject {
     revenueCatManager: RevenueCatManager = .shared) {
         self.user = user
         self.revenueCatManager = revenueCatManager
+        
+        getPremium()
     }
     
 }

@@ -119,23 +119,31 @@ private extension PostView {
     //MARK: - How To Repost View -
     var howToRepostView: some View {
         VStack(alignment: .center) {
-            Spacer().frame(height: dh(0.3))
-            Text("How to Repost ?")
-                .foregroundStyle(ColorHandler.getColor(for: .purple))
-                .font(FontHandler.setFont(.bold, size: .h1))
-            Spacer().frame(height: dh(0.05))
-            VStack(alignment: .leading) {
-                makeListView("Fint a post on your feed")
-                makeListView(
-                    "Click on the  or ... on button\non the top right of the post"
-                )
-                makeListView("Click on ''Copy Link''")
-                makeListView("Come back to this app")
+            ImageHandler.shared.getImage(.howRepost)
+                .scaledToFit()
+                .frame(width: dw(0.8), height: dh(0.5))
+                .offset(y: dh(-0.18))
+            
+            Group {
+                Text("How to Repost ?")
+                    .foregroundStyle(ColorHandler.getColor(for: .purple))
+                    .font(FontHandler.setFont(.bold, size: .h1))
+                Spacer().frame(height: dh(0.05))
+                VStack(alignment: .leading) {
+                    makeListView("Fint a post on your feed")
+                    makeListView(
+                        "Click on the  or ... on button\non the top right of the post"
+                    )
+                    makeListView("Click on ''Copy Link''")
+                    makeListView("Come back to this app")
+                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
+            .offset(y: dh(-0.13))
             Spacer()
             Button {
                 vm.isShownHowToUse.toggle()
+                UserStandard.set(true, forKey: UserStandardKey.isShownHowToUsePostKey)
             } label: {
                 Text("Okey")
                     .foregroundStyle(ColorHandler.getColor(for: .white))
@@ -143,8 +151,7 @@ private extension PostView {
 
         }
         .onAppear {
-            UserStandard
-                .set(true, forKey: UserStandardKey.isShownHowToUsePostKey)
+            UserStandard.set(true, forKey: UserStandardKey.isShownHowToUsePostKey)
         }
         .frame(width: dw(1))
         .background(BackgroundView())
